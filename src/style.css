@@ -1,1 +1,32 @@
-@import "~bootstrap/dist/css/bootstrap.min.css";
+body {
+  background: green;
+}
+
+.carta {
+  color: red;
+  border-radius: 20px;
+  background-color: ghostwhite;
+  height: 150px;
+  width: 100px;
+  padding: 1%;
+  margin: 1%;
+  display: flex;
+  position: relative;
+  float: left;
+}
+.pinta {
+  position: absolute;
+  top: 5%;
+  left: 10%;
+}
+.numero {
+  position: absolute;
+  top: 45%;
+  left: 45%;
+}
+.pinta2 {
+  position: absolute;
+  bottom: 5%;
+  left: 80%;
+  text-align: left;
+}
