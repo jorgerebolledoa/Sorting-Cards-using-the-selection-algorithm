@@ -1,6 +1,8 @@
 window.onload = function() {
   let pinta_random = "";
   let numero_random = "";
+  let valor_numero = "";
+  let cartas_creadas = [{ pinta: "", numero: "" }];
   let pull_pinta = ["♦", "♥", "♠", "♣"];
   let pull_numero = [
     "A",
@@ -41,6 +43,12 @@ window.onload = function() {
       carta.appendChild(pinta2);
       pinta2.innerHTML = pull_pinta[pinta_random];
       contenedor.appendChild(carta);
+      let p = pull_pinta[pinta_random];
+      let n = pull_numero[numero_random];
+      cartas_creadas.push({
+        pinta: p,
+        numero: n
+      });
 
       if (pinta_random == 2 || pinta_random == 3) {
         pinta.classList.add("text-dark");
@@ -61,10 +69,14 @@ window.onload = function() {
     return;
   }
 
-  let button = document.getElementById("button");
   let input2 = document.getElementById("input");
+  let button = document.getElementById("button");
+  let button_sort = document.getElementById("button_sort");
 
   button.addEventListener("click", e => {
     crear_carta(input2.value);
+    console.log(cartas_creadas);
   });
+
+  button_sort.addEventListener("click", e => {});
 };
