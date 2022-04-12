@@ -65,26 +65,28 @@ window.onload = function() {
     }
     return;
   }
-  function sort() {
-    let i = cartas_creadas.length - 1;
-    while (i > 0) {
-      let contador = 0;
-      while (contador < i) {
-        if (
-          cartas_creadas[contador].numero > cartas_creadas[contador + 1].numero
-        ) {
-          let guardar_carta = cartas_creadas[contador];
-          cartas_creadas[contador] = cartas_creadas[contador + 1];
-          cartas_creadas[contador + 1] = guardar_carta;
-        }
-        contador++;
-        crear_carta_ordenadas(cartas_creadas);
-      }
 
-      i--;
+  function selectionSort(cartas_creadas) {
+    let n = cartas_creadas.length;
+
+    for (let i = 0; i < n; i++) {
+      let min = i;
+      for (let j = i + 1; j < n; j++) {
+        if (cartas_creadas[j].numero < cartas_creadas[min].numero) {
+          min = j;
+        }
+      }
+      if (min != i) {
+        // Swapping the elements
+        let tmp = cartas_creadas[i];
+        cartas_creadas[i] = cartas_creadas[min];
+        cartas_creadas[min] = tmp;
+      }
+      crear_carta_ordenadas(cartas_creadas);
     }
     return cartas_creadas;
   }
+
   function crear_carta_ordenadas(cartas_creadas) {
     let j = 0;
     let div_ordenado2 = document.createElement("div");
@@ -165,7 +167,7 @@ window.onload = function() {
   });
 
   button_sort.addEventListener("click", e => {
-    sort();
+    selectionSort(cartas_creadas);
     console.log(cartas_creadas);
   });
 };
